@@ -86,7 +86,8 @@ const SingUpScreen = ({navigation}) => {
                       telephone: values.telephone,
                     })
                     .then(() => {
-                      GeneralStorage.setUid(user.user.uid).then(() => {
+                      GeneralStorage.setUid(user.user.uid)
+                      .then(() => {
                         dispatch(GeneralAction.setUID(user.user.uid));
                       });
                       navigation.goBack();
