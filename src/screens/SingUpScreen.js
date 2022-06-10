@@ -97,13 +97,15 @@ const SingUpScreen = ({navigation}) => {
                   alert(err.message);
                 });
             }}>
-            {({
-              handleChange,
-              handleSubmit,
-              values,
-              isValid,
-              errors,
-              touched,
+            {
+              (
+                {
+                  handleChange,
+                  handleSubmit,
+                  values,
+                  isValid,
+                  errors,
+                  touched,
             }) => {
               return (
                 <View>
