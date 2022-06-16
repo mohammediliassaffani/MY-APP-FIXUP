@@ -20,18 +20,19 @@ import GeneralAction from '../Store/Actions/GeneralAction';
 
 const {Plumber, Electrician, RGB_AI, Fii, Builder, ManageAccounts, Person} =
   Images;
+
+ 
 const {setWidth, setHeight} = Displayer;
+
+// serciesis screen components
 
 const ServicesScreen = ({navigation}) => {
   const [isArabic, setIsArabic] = useState(0);
 
-  // Redux Hooks
+  // Redux Hooks ()
   const {lang, uid, user: USER, image} = useSelector(state => state.Language);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(image);
-  }, []);
 
   useEffect(() => {
     setIsArabic(lang);
@@ -63,7 +64,8 @@ const ServicesScreen = ({navigation}) => {
     {ID: 3, Name: Traduction[isArabic].Plmo, Icon: Plumber},
   ];
   return (
-    <>
+    // Fragment avoiding error JSX
+    <> 
       <StatusBar backgroundColor={Colors.Primary} />
       <View style={styles.Container}>
         <View style={styles.Header}>
@@ -79,6 +81,7 @@ const ServicesScreen = ({navigation}) => {
         </View>
         <View style={styles.Services}>
           <View style={{flexDirection: 'row'}}>
+            {/* Maping All On Servecis */}
             {allServices.map(Service => {
               return (
                 <TouchableOpacity
@@ -94,7 +97,7 @@ const ServicesScreen = ({navigation}) => {
                   }}
                   onPress={() => {
                     dispatch(GeneralAction.setImage(''));
-                    console.log(Service.Name);
+                   
                     navigation.navigate('Form', {service: Service.Name});
                   }}>
                   <View style={[styles.Cir]}>

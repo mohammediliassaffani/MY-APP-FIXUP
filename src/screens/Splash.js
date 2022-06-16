@@ -1,4 +1,4 @@
-import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet, View} from 'react-native';
 import React, {useEffect} from 'react';
 import LottieView from 'lottie-react-native';
 import {Colors} from '../constants';
@@ -18,11 +18,13 @@ export default function Splash() {
     <>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.Primary} />
       <View style={styles.screen}>
+        {/* reglage d'ecron splash screen */}
         <LottieView
           source={Loiding}
-          style={{width: setWidth(55), height: setWidth(55)}}
+          style={{width: setWidth(55), height: setWidth(55)}}  //Display func
           autoPlay
           loop
+          
         />
       </View>
     </>
