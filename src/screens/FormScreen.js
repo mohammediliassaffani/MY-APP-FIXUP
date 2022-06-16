@@ -98,6 +98,7 @@ export default function FormScreen({route, navigation}) {
     // console.log({fullname, address, description, phone});
 
     const UploadURI = photo;
+    
     let filename = UploadURI.substring(UploadURI.lastIndexOf('/') + 1);
     setIsLoading(true);
 
