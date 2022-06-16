@@ -33,13 +33,15 @@ export default function FormScreen({route, navigation}) {
   useEffect(() => {
     setPhoto(image);
   }, [image]);
-
+// all servesis array
   const allServices = [
     {ID: 0, Name: Traduction[isArabic].Elec},
     {ID: 1, Name: Traduction[isArabic].Manui},
     {ID: 2, Name: Traduction[isArabic].clima},
     {ID: 3, Name: Traduction[isArabic].Plmo},
   ];
+
+  // my form hundler data
   const {phone: PHONE, fullname: FULLNAME} = USER;
   const {service} = route.params;
   const [srv, setService] = useState(service);
@@ -66,7 +68,7 @@ export default function FormScreen({route, navigation}) {
       name: 'Entrer votre nom complet',
     },
   ];
-  // On Submit
+  // On Submit form servises
   async function submitOrder() {
     if (!fullname || fullname.trim().length < 3) {
       Alert.alert(errorHandler[isArabic].submit, errorHandler[isArabic].name);
@@ -93,7 +95,7 @@ export default function FormScreen({route, navigation}) {
       );
       return;
     }
-    console.log({fullname, address, description, phone});
+    // console.log({fullname, address, description, phone});
 
     const UploadURI = photo;
     let filename = UploadURI.substring(UploadURI.lastIndexOf('/') + 1);

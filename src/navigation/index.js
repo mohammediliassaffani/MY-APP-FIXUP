@@ -19,6 +19,8 @@ import {
 const Stack = createNativeStackNavigator();
 export default function index() {
   const [isLoading, setIsLoading] = useState(true);
+
+  //Stack for handling display splash screen 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -27,16 +29,22 @@ export default function index() {
   }, []);
 
   const {isFirstTimeUse, uid} = useSelector(state => state.Language);
-  console.log(uid);
+
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
+
+        {/* loding page */}
         {isLoading ? (
-          <Stack.Screen name="Splash" component={SplashScreen} />
+          <Stack.Screen name="Splash" component={SplashScreen} /> // Stack for handling display splash screen 
         ) : (
+
+          // if first time display this screen
           <>
             {isFirstTimeUse ? (
               <Stack.Screen name="Home" component={HomeScreen} />
+
+              // if not first time show this
             ) : (
               <Stack.Screen name="Services" component={ServicesScreen} />
             )}
@@ -44,11 +52,17 @@ export default function index() {
             <Stack.Screen name="Camera" component={Camera} />
             <Stack.Screen name="Send" component={SendScreen} />
             <Stack.Screen name="Setting" component={SettingScreen} />
+            
+            {/* if Unique Id dos not  existed show this */}
+
+            
             {uid === '' ? (
               <>
                 <Stack.Screen name="Login" component={LogInScreen} />
                 <Stack.Screen name="SingUp" component={SingUpScreen} />
               </>
+
+              // if U ID existed SHOW THIS
             ) : (
               <>
                 <Stack.Screen name="SingUp" component={UserInfo} />
