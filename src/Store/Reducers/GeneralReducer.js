@@ -11,7 +11,7 @@ const initialState = {
   },
   image: '',
 };
-
+// inisialisation ALL STATE in ALL REDUCER
 const GeneralReducer = (state = initialState, action) => {
   switch (action.type) {
     case GeneralAction.types.SET_FIRST_TIME_USE:

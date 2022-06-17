@@ -18,7 +18,7 @@ import GeneralAction from '../Store/Actions/GeneralAction';
 
 const {setWidth, setHeight} = Displayer;
 const logoSize = 35;
-
+// we Dispatch Data FROM  GeneralStorage USING REDUX (useDispatch)
 const HomeScreen = () => {
   const dispatch = useDispatch();
 
@@ -27,12 +27,18 @@ const HomeScreen = () => {
       dispatch(GeneralAction.setIsFirstTimeUse());
     });
   };
+
+
+// Get Lang From Redux and asyncStorqge
+
   const {lang} = useSelector(state => state.Language);
 
   const [isArabic, setIsArabic] = useState(lang);
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={Colors.Primary} barStyle={'dark-content'} />
+
+      
       {/* Header */}
       <View style={{...StyleSheet.absoluteFillObject}}>
         <Waves />

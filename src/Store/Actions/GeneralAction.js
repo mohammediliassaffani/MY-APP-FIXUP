@@ -42,7 +42,7 @@ const setUSER = USER => {
     payload: USER,
   };
 };
-
+// on app start GET frpm asyncstorage data FIRSRTIME
 const appStart = () => {
   return (dispatch, getState) => {
     StorageService.getFirstTimeUse().then(isFirstTimeUse => {
@@ -51,6 +51,8 @@ const appStart = () => {
         payload: isFirstTimeUse ? false : true,
       });
     });
+
+    // Get LNG from asyncstorage
     StorageService.getLang().then(lang => {
       if (lang) {
         dispatch({
@@ -59,6 +61,8 @@ const appStart = () => {
         });
       }
     });
+
+    // GET UID from asyncstorage
     StorageService.getUid().then(uid => {
       if (uid) {
         dispatch({
