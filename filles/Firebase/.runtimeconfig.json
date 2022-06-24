@@ -1,0 +1,8 @@
+{
+  "firebase": {
+    "projectId": "fixapp-solcode",
+    "databaseURL": "https://fixapp-solcode-default-rtdb.europe-west1.firebasedatabase.app",
+    "storageBucket": "fixapp-solcode.appspot.com",
+    "locationId": "europe-west"
+  }
+}
